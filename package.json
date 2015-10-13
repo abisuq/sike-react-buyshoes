@@ -4,7 +4,7 @@
   "description": "Startkit For Buyshoes Shopping Cart",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make all"
   },
   "author": "Howard Yeh",
   "license": "MIT",
