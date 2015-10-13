@@ -21,5 +21,5 @@ js:
 	webpack --watch -d --progress js/app.jsx build/app.js --module-bind "js=babel" --module-bind "jsx=babel"
 	
 .PHONY: minjs
-js:
+minjs:
 	webpack --watch -d -p --progress js/app.jsx build/app.js --module-bind "js=babel" --module-bind "jsx=babel"
