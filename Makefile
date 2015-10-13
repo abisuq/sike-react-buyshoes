@@ -18,8 +18,8 @@ clean:
 	
 .PHONY: js
 js:
-	webpack --watch -d --progress js/app.jsx build/app.js --module-bind "js=babel" --module-bind "jsx=babel"
+	webpack --watch -d --progress js/app.js build/app.js --module-bind "js=babel"
 	
 .PHONY: minjs
 minjs:
-	webpack --watch -d -p --progress js/app.jsx build/app.js --module-bind "js=babel" --module-bind "jsx=babel"
+	webpack --watch -d -p --progress js/app.js build/app.js --module-bind "js=babel"
