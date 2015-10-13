@@ -18,7 +18,7 @@ clean:
 	
 .PHONY: js
 js:
-	webpack --watch -d --progress js/app.js build/app.js --module-bind "js=babel"
+	webpack --watch -d --progress js/app.js build/app.js --module-bind "js=babel" --display-error-details --colors
 	
 .PHONY: minjs
 minjs:
