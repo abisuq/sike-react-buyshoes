@@ -5,7 +5,7 @@ all:
 
 .PHONY: css
 css:
-	mkdir -p bundle
+	mkdir -p build
 	postcss --watch --use autoprefixer --use postcss-import css/app.css --output build/app.css
 
 .PHONY: server
@@ -14,8 +14,12 @@ server:
 
 .PHONY: clean
 clean:
-	rm -r bundle
+	rm -r build
 	
 .PHONY: js
 js:
-	babel --watch js/app.jsx --out-file build/app.js
+	webpack --watch -d --progress js/app.jsx build/app.js --module-bind "js=babel" --module-bind "jsx=babel"
+	
+.PHONY: minjs
+js:
+	webpack --watch -d -p --progress js/app.jsx build/app.js --module-bind "js=babel" --module-bind "jsx=babel"
