@@ -1,6 +1,5 @@
-const React = require("react");
-//The Checkout component.
-let Checkout = React.createClass({
+import React from 'react';
+export default class Checkout extends React.Component {
   render() {
     return (
       <div className="checkout">
@@ -36,6 +35,4 @@ let Checkout = React.createClass({
       </div> 
     );
   }
-});
-
-module.exports = Checkout;
+}

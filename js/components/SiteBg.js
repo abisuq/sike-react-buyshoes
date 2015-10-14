@@ -1,6 +1,5 @@
-const React = require("react");
-//The SiteBg component
-let SiteBg = React.createClass({
+import React from 'react';
+export default class SiteBg extends React.Component {
   render() {
     return (
       <div className="bg">
@@ -9,6 +8,4 @@ let SiteBg = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = SiteBg;
+}

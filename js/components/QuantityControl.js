@@ -1,6 +1,6 @@
-const React = require("react");
-// The QuantityControl component.
-let QuantityControl = React.createClass({
+import React from 'react';
+
+export default class QuantityControl extends React.Component {
   render() {
     let {id, quantity} = this.props.item,
       variant = this.props.variant;
@@ -12,6 +12,4 @@ let QuantityControl = React.createClass({
       </div>
     );
   }
-})
-
-module.exports = QuantityControl;
+}

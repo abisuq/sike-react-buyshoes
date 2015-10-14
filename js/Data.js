@@ -81,4 +81,5 @@ let Data = {
   }
 }
 
-module.exports = Data;
+// module.exports = Data;
+export default Data;

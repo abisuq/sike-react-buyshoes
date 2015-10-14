@@ -1,18 +1,21 @@
-const React = require("react");
-const SiteBg = require("./SiteBg");
-const SiteTitle = require("./SiteTitle");
-const Products = require("./Products");
-const Cart = require("./Cart");
-const Checkout = require("./Checkout");
+import React from "react";
+import SiteBg from "./SiteBg";
+import SiteTitle from "./SiteTitle";
+import Products from "./Products";
+import Cart from "./Cart";
+import Checkout from "./Checkout";
+import Data from "../Data.js";
+let {data_products, data_cartItems} = Data;
+
 
 //App component
-let App = React.createClass({
+export default class App extends React.Component {
   componentDidMount() {
     let toggle = React.findDOMNode(this.refs.toggle);
     toggle.addEventListener("click", () => {
       document.body.classList.toggle("js-show-right-sidebar");
     });
-  },
+  }
   render() {
     return (
       <div className="site">
@@ -23,12 +26,12 @@ let App = React.createClass({
             </div>
 
             <div className="site__content">
-                <Products />
+                <Products products={data_products} cartItems={data_cartItems}/>
             </div>
         </div>
 
         <div className="site__right-sidebar">
-            <Cart />
+            <Cart products={data_products} cartItems={data_cartItems}/>
             <Checkout />
         </div>
         <a className="site__right-sidebar-toggle" ref="toggle">
@@ -37,10 +40,7 @@ let App = React.createClass({
     </div> 
     );
   }
-});
-
-module.exports = App;
-
+}
 
 
 

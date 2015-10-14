@@ -1,12 +1,10 @@
-const React = require("react");
-const QuantityControl = require('./QuantityControl');
-const Data = require('./Data');
-let data_products = Data.data_products;
-//The CartItem component.
-let CartItem = React.createClass({
+import React from 'react';
+import QuantityControl from './QuantityControl';
+
+export default class CartItem extends React.Component {
   render() {
     let {id, quantity} = this.props.cartItem,
-        {name, price, imagePath} = data_products[id];
+        {name, price, imagePath} = this.props.products[id];
     return (
       <div className="cart-item">
         <div className="cart-item__top-part">
@@ -29,6 +27,4 @@ let CartItem = React.createClass({
       </div>
     );
   }
-})
-
-module.exports = CartItem;
+}

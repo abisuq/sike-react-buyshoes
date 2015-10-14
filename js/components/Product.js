@@ -1,11 +1,12 @@
-const React = require("react");
-const QuantityControl = require("./QuantityControl");
-const Data = require('./Data');
-let data_cartItems = Data.data_cartItems;
+import React from 'react';
+import QuantityControl from './QuantityControl';
+
 //The Product component
-let Product = React.createClass({
+export default class Product extends React.Component {
   renderAdd() {
-    let item = data_cartItems[this.props.product.id];
+    let cartItems = this.props.cartItems;
+    let product = this.props.product;
+    let item = cartItems[product.id];
     if(item){
       return (
         <QuantityControl item={item} variant="gray"/>
@@ -17,7 +18,7 @@ let Product = React.createClass({
         </a>
       );
     }
-  },
+  }
   render() {
     let {name,price,imagePath} = this.props.product;   
     return (
@@ -40,6 +41,4 @@ let Product = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Product;
+}

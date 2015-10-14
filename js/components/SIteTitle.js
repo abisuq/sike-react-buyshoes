@@ -1,6 +1,5 @@
-const React = require("react");
-//The SiteTitle component.
-let SiteTitle = React.createClass({
+import React from 'react';
+export default class SiteTitle extends React.Component {
   render() {
     return (
       <div className="title">
@@ -9,6 +8,4 @@ let SiteTitle = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = SiteTitle;
+}
