@@ -1,19 +1,28 @@
 import React from 'react';
 import QuantityControl from './QuantityControl';
+import cartStore from '../stores/CartStore';
 
+const {getCartItem, addCartItem} = cartStore;
 //The Product component
 export default class Product extends React.Component {
+  componentDidMount() {
+    cartStore.addChangeListener(this.forceUpdate.bind(this));
+  }
+  
+  onClick(productId){
+    addCartItem(productId);
+  }
+  
   renderAdd() {
-    let cartItems = this.props.cartItems;
     let product = this.props.product;
-    let item = cartItems[product.id];
+    let item = getCartItem(product.id);
     if(item){
       return (
         <QuantityControl item={item} variant="gray"/>
       );
     }else{
       return (
-        <a className="product__add">
+        <a className="product__add" onClick={this.onClick.bind(this, product.id)}>
           <img className="product__add__icon" src="img/cart-icon.svg" />
         </a>
       );

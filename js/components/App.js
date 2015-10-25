@@ -4,8 +4,6 @@ import SiteTitle from "./SiteTitle";
 import Products from "./Products";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
-import Data from "../Data.js";
-let {data_products, data_cartItems} = Data;
 
 
 //App component
@@ -26,12 +24,12 @@ export default class App extends React.Component {
             </div>
 
             <div className="site__content">
-                <Products products={data_products} cartItems={data_cartItems}/>
+                <Products />
             </div>
         </div>
 
         <div className="site__right-sidebar">
-            <Cart products={data_products} cartItems={data_cartItems}/>
+            <Cart />
             <Checkout />
         </div>
         <a className="site__right-sidebar-toggle" ref="toggle">

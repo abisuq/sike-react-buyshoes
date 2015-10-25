@@ -1,5 +1,4 @@
-let Data = {
-  data_products: {
+let data_products = {
     "jameson-vulc": {
       id: "jameson-vulc",
       name: "Jameson Vulc",
@@ -56,30 +55,6 @@ let Data = {
       price: 44.99,
       gender: "woman",
     }
-  },
-  data_cartItems: {
-    "jameson-vulc": {
-      id: "jameson-vulc",
-      quantity: 1,
-    },
-    "marana-x-hook-ups": {
-      id: "marana-x-hook-ups",
-      quantity: 2,
-    },
-    "scout-womens-6": {
-      id: "scout-womens-6",
-      quantity: 2,
-    },
-    "scout-womens-coco-ho-5": {
-      id: "scout-womens-coco-ho-5",
-      quantity: 1,
-    },
-    "jameson-2-womens-8": {
-      id: "jameson-2-womens-8",
-      quantity: 1,
-    }
-  }
 }
 
-// module.exports = Data;
-export default Data;
+export default data_products;
