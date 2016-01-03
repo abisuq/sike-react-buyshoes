@@ -1,5 +1,4 @@
 import EventEmitter from 'events';
-// import products from 'Data';
 let emitter = new EventEmitter();
 
 function emitChange() {
@@ -15,6 +14,9 @@ export default {
   getCartItems() {
 		return _cartItems;
 	},
+  cartItems() {
+		return _cartItems;
+	},
   getCartItem(productId){
     return _cartItems[productId];
   },
@@ -24,6 +26,7 @@ export default {
       id: productId,
       quantity: 1
     }
+    console.log('add')
     emitChange();
 	},
   removeCartItem(productId) {

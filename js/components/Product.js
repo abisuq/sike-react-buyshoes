@@ -1,35 +1,42 @@
 import React from 'react';
 import QuantityControl from './QuantityControl';
-import cartStore from '../stores/CartStore';
-
-const {getCartItem, addCartItem} = cartStore;
+import CartStore from '../stores/CartStore';
+import LikeStore from '../stores/LikeStore';
+const {getLikeItems, addLikeItem, removeLikeItem} = LikeStore;
+const {getCartItem, addCartItem} = CartStore;
 //The Product component
 export default class Product extends React.Component {
   componentDidMount() {
-    cartStore.addChangeListener(this.forceUpdate.bind(this));
+    CartStore.addChangeListener(this.forceUpdate.bind(this))
+    LikeStore.addChangeListener(this.forceUpdate.bind(this))
   }
   
-  onClick(productId){
-    addCartItem(productId);
+  handleAdd2Cart(productId){
+    addCartItem(productId)
   }
   
+  handleLike(productId){
+    getLikeItems()[productId] ? removeLikeItem(productId) : addLikeItem(productId)
+  }
+
   renderAdd() {
-    let product = this.props.product;
-    let item = getCartItem(product.id);
+    let product = this.props.product
+    let item  = this.props.cartItems[product.id]
     if(item){
       return (
         <QuantityControl item={item} variant="gray"/>
-      );
+      )
     }else{
       return (
-        <a className="product__add" onClick={this.onClick.bind(this, product.id)}>
+        <a className="product__add" onClick={this.handleAdd2Cart.bind(this, product.id)}>
           <img className="product__add__icon" src="img/cart-icon.svg" />
         </a>
-      );
+      )
     }
   }
   render() {
-    let {name,price,imagePath} = this.props.product;   
+    let {name,price,imagePath,id} = this.props.product
+    let liked = this.props.liked 
     return (
       <div className="product">
         <div className="product__display">
@@ -45,7 +52,7 @@ export default class Product extends React.Component {
           <div className="product__name">
             {name}
           </div>
-          <img className="product__heart" src="img/heart.svg" />
+          <img className="product__heart" onClick = {this.handleLike.bind(this, id)} src={liked ? 'img/heart-liked.svg' : 'img/heart.svg'} />
         </div>
       </div>
     );
