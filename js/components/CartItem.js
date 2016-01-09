@@ -1,15 +1,15 @@
-import React from 'react';
-import QuantityControl from './QuantityControl';
-import data_products from '../Data.js';
-import {removeCartItem} from '../stores/CartStore';
-// const {removeCartItem} = cartStore;
+import React from 'react'
+import QuantityControl from './QuantityControl'
+import {products} from "../stores/ProductStore"
+import {removeCartItem} from '../actions/action'
+
 export default class CartItem extends React.Component {
   onClick(id) {
     removeCartItem(id);
   }
   render() {
     let {id, quantity} = this.props.cartItem,
-        {name, price, imagePath} = data_products[id];
+        {name, price, imagePath} = products()[id];
     return (
       <div className="cart-item">
         <div className="cart-item__top-part">

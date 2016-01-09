@@ -3,11 +3,17 @@ import Ps from 'perfect-scrollbar'
 import cartStore from '../stores/CartStore'
 import CartItem from './CartItem'
 import connect from './connect'
+import {lastHistoryItem} from '../stores/UndoStore'
+import {undoShoppingCart} from '../actions/action'
 
 class CartView extends React.Component {
   componentDidMount() {
     let cartBox = React.findDOMNode(this.refs.cartBox)
     Ps.initialize(cartBox)
+  }
+  undo() {
+    let cartItems = lastHistoryItem();
+    undoShoppingCart(cartItems);
   }
   render() {
     let {cartItems} = this.props
@@ -20,6 +26,7 @@ class CartView extends React.Component {
     return (
      <div className="cart">
         <h3 className="cart__title">Shopping Cart</h3>
+        <h3 className="cart__undo"><a onClick={this.undo}>undo</a></h3>
         <div className="cart__content" ref="cartBox">
           <h3 className="cart__title cart__title--spacer">Shopping Cart</h3>
           {cartItemNode}

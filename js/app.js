@@ -1,7 +1,8 @@
-import React from "react";
-import App from "./components/App";
-// const React = require("react");
-// const App = require("./components/App");
+import React from 'react'
+import App from './components/App'
+import LoggingService from './LoggingService'
+
 window.onload = () => {
-  React.render(<App/>, document.body);
-};
+  LoggingService.enableLogging()
+  React.render(<App/>, document.body)
+}

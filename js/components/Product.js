@@ -1,10 +1,10 @@
-import React from 'react';
-import QuantityControl from './QuantityControl';
-import CartStore from '../stores/CartStore';
-import LikeStore from '../stores/LikeStore';
-const {getLikeItems, addLikeItem, removeLikeItem} = LikeStore;
-const {getCartItem, addCartItem} = CartStore;
-//The Product component
+import React from 'react'
+import QuantityControl from './QuantityControl'
+import CartStore from '../stores/CartStore'
+import LikeStore from '../stores/LikeStore'
+import {addCartItem} from '../actions/action'
+const {getLikeItems, addLikeItem, removeLikeItem} = LikeStore
+
 export default class Product extends React.Component {
   componentDidMount() {
     CartStore.addChangeListener(this.forceUpdate.bind(this))

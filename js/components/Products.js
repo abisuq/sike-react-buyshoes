@@ -1,6 +1,6 @@
 import React from 'react'
 import Product from './Product'
-import ProductStore from "../stores/ProductStore"
+import ProductStore from '../stores/ProductStore'
 import LikeStore from '../stores/LikeStore'
 import CartStore from '../stores/CartStore'
 import connect from './connect'

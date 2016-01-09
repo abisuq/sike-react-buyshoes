@@ -1,9 +1,9 @@
-import React from 'react';
-import {updateCartItemQuantity} from '../stores/CartStore';
+import React from 'react'
+import {updateCartItemQuantity} from '../actions/action'
+
 export default class QuantityControl extends React.Component {
   onClick(id, quantity){
-    console.log(quantity)
-    updateCartItemQuantity(id, quantity);
+    updateCartItemQuantity(id, quantity)
   }
   render() {
     let {id, quantity} = this.props.item,
@@ -14,6 +14,6 @@ export default class QuantityControl extends React.Component {
         <div className="adjust-qty__number">{quantity}</div>
         <a className="adjust-qty__button" onClick={this.onClick.bind(this, id, quantity+1)}>+</a>
       </div>
-    );
+    )
   }
 }

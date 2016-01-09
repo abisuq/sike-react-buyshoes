@@ -238,7 +238,13 @@ a {
 
   background: linear-gradient(rgba(192,207,221,1),rgba(192,207,221,0.7));
 }
-
+.cart__undo{
+  position: absolute;
+  top: 0; right: 0;
+  padding: 15px 0;
+  justify-content: center;
+  z-index: 30;
+}
 .cart:after {
   content: "";
   position: absolute;
